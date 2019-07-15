@@ -5,6 +5,10 @@ class Campaign < ApplicationRecord
     title
   end
 
+  # relations
+  has_many :campaign_clients
+  has_many :clients, through: :campaign_clients
+  
   # validations
   validates :title, presence: true
   validates :body, presence: true
