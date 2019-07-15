@@ -5,6 +5,9 @@ class Client < ApplicationRecord
     name
   end
 
+  #relations 
+  has_many :campaign_clients, dependent: :destroy
+  has_many :campaigns, through: :campaign_clients
   # validations
   validates :phone, presence: true
   validates :email,

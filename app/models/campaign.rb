@@ -6,7 +6,7 @@ class Campaign < ApplicationRecord
   end
 
   # relations
-  has_many :campaign_clients
+  has_many :campaign_clients, dependent: :destroy
   has_many :clients, through: :campaign_clients
   
   # validations
