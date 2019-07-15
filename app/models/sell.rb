@@ -1,4 +1,5 @@
 class Sell < ApplicationRecord
+  # fae stuff
   include Fae::BaseModelConcern
   enum status: { finished: 0, canceled: 1 }
  
@@ -9,7 +10,10 @@ class Sell < ApplicationRecord
   def self.for_fae_index
     order(:id)
   end
- 
+  # relations
   belongs_to :discount
   belongs_to :client
+
+  # validations
+  validates :client, presence: true
 end
